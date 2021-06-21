@@ -1,10 +1,21 @@
 import React from 'react';
 import {getRepoDetails} from "../../../service/gitRepoService";
 import RepoAutocomplete from "./autocomplete";
-import RepoLists from "./repoLists";
+import RepoDetails from "../../repoDetails/component";
+
 
 const Home = (props) => {
-    let allRepos;
+    let keyWord = props.searchInput;
+    let page = 1;
+
+    const loadMore = () => {
+        if (!!keyWord) {
+            getRepoDetails(keyWord, props, page)
+                .then(_ => {
+                    page += 1;
+                })
+        }
+    }
 
     return <div style={{
         display: 'block',
@@ -15,18 +26,11 @@ const Home = (props) => {
         <div style={{margin: '100 auto', paddingBottom: 10}}>
             <RepoAutocomplete
                 getSelectedRepo={(event, repoKeyword) => {
-                    props.onSearchChange(repoKeyword?.title.toLowerCase() || '');
-                    if (!!repoKeyword) {
-                        getRepoDetails(repoKeyword.title, props).then(repoList => {
-                            // allRepos = repoList;
-                        })
-                        console.log(allRepos)
-                    }
+                    props.onSearchChange(repoKeyword?.title || '');
                 }
                 }/>
-
         </div>
-        {!!props.repoList && <RepoLists repos={props.repoList}/>}
+        <RepoDetails loadMore={loadMore}/>
     </div>
 }
 

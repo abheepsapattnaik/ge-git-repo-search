@@ -17,10 +17,17 @@ const transformData = (repoDetails) => {
 }
 
 
-export const getRepoDetails = (searchKeyword, props) => {
+export const getRepoDetails = (searchKeyword, props, page = 1) => {
     return axios
-        .get(`https://api.github.com/search/repositories?q=${searchKeyword}`)
-        .then(response => props.loadSuccess(transformData(response.data))
+        .get(`https://api.github.com/search/repositories?q=${searchKeyword}&page=${page}`)
+        .then(response => {
+            console.log('api called')
+                if (page === 1) {
+                    return props.loadSuccess(transformData(response.data));
+                } else {
+                    return props.loadReposMoreSuccess(transformData(response.data));
+                }
+            }
         )
         .catch(() => props.loadError());
 

@@ -1,5 +1,6 @@
 export const LOAD_REPOS_SUCCESS_ACTION = 'LOAD_REPOS_SUCCESS_ACTION';
 export const LOAD_REPOS_ERROR_ACTION = 'LOAD_REPOS_ERROR_ACTION';
+export const LOAD_REPOS_MORE_ACTION = 'LOAD_REPOS_MORE_ACTION';
 export const SEARCH_CHANGE_ACTION = 'SEARCH_CHANGE_ACTION';
 
 
@@ -12,6 +13,10 @@ const initialState = {
 
 export const loadReposSuccess = (repoList) => ({
     type: LOAD_REPOS_SUCCESS_ACTION,
+    data: repoList
+});
+export const loadReposMore = (repoList) => ({
+    type: LOAD_REPOS_MORE_ACTION,
     data: repoList
 });
 
@@ -29,8 +34,10 @@ const repoReducer =
         switch (action.type) {
             case LOAD_REPOS_SUCCESS_ACTION:
                 return {...state, repos: action.data.repos, total: action.data.total};
+            case LOAD_REPOS_MORE_ACTION:
+                return {...state, repos: [...state.repos, ...action.data.repos],};
             case LOAD_REPOS_ERROR_ACTION:
-                return {...state, repos: [], error: true};
+                return {...state, error: true};
             case SEARCH_CHANGE_ACTION:
                 return {...state, repos: [], error: false, searchInput: action.data};
             default:
