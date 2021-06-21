@@ -1,8 +1,12 @@
 import React from 'react';
+import {getRepoDetails} from "../../../service/gitRepoService";
 
-const Home = () => {
-
-    return <div> Hi You are in Home page</div>
+const Home = (props) => {
+    let allRepos;
+    getRepoDetails('abheepsa', props).then(details => {
+        allRepos = details
+    });
+    return <div> Home Page</div>
 }
 
 export default Home;
