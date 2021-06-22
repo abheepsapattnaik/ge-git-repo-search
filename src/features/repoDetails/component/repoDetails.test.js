@@ -3,7 +3,7 @@ import React from 'react';
 import RepoDetails from "./repoDetails";
 import InfiniteScroll from 'react-infinite-scroller';
 import RepoLists from "./repoLists";
-import {Typography} from "@material-ui/core";
+import RepoError from "../../error/component";
 
 
 describe('RepoDetails', () => {
@@ -24,10 +24,9 @@ describe('RepoDetails', () => {
         const repoDetailsTag = shallow(<RepoDetails {...props}/>);
         const muiInfiniteScrollTag = repoDetailsTag.find(InfiniteScroll);
         const muiRepoListTag = repoDetailsTag.find(RepoLists);
-        const muiMessageTag = repoDetailsTag.find(Typography);
+        const muiRepoErrorTag = repoDetailsTag.find(RepoError);
         expect(muiInfiniteScrollTag.length).toBe(1);
-        expect(muiMessageTag.length).toBe(1);
-        expect(muiMessageTag.text()).toBe(' No Results ... ');
+        expect(muiRepoErrorTag.length).toBe(1);
         expect(muiRepoListTag.length).toBe(0);
     });
 });

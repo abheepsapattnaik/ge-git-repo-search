@@ -39,7 +39,8 @@ describe('GitRepoServiceTest', () => {
                 "licenseKey": "key",
                 "name": "abheepsa-academy-api",
                 "ownerAvatar": "https://avatars.githubusercontent.com/u/57842357?v=4",
-                "watchers": 0
+                "watchers": 0,
+                "url": "https://github.com/tiwariankitorg/abheepsa-academy-api",
             },], "total": 1
         }
 

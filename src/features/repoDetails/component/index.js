@@ -5,7 +5,8 @@ import RepoDetails from "./repoDetails";
 
 const mapPropsToState = (state) => {
     return {
-        repos: state.repoStore.repos
+        repos: state.repoStore.repos,
+        loadingStatus: state.repoStore.initialLoading,
     };
 };
 
