@@ -1,10 +1,19 @@
-# Getting Started with Create React App
+# Getting Started with Git Repo Search App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This app has an autocomplete text field, which takes up the search keyword and fires 
+api call to get the first set of repo details(default:30). 
+On scrolling down, it fires an event to fetch the next page (set of next 30).
+
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn install`
+
+Install all the dependencies before starting the app
 
 ### `yarn start`
 
@@ -26,6 +35,12 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn lint`
+
+Check for lint issues
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
