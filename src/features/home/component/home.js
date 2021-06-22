@@ -2,6 +2,7 @@ import React from 'react';
 import {getRepoDetails} from "../../../service/gitRepoService";
 import RepoAutocomplete from "./autocomplete";
 import RepoDetails from "../../repoDetails/component";
+import {Typography} from "@material-ui/core";
 
 
 const Home = (props) => {
@@ -30,7 +31,10 @@ const Home = (props) => {
                 }
                 }/>
         </div>
+        {!!keyWord.trim().length &&
         <RepoDetails loadMore={loadMore}/>
+        }
+        {!keyWord.trim().length && <Typography variant={'subtitle1'} > Start Typing ...</Typography>}
     </div>
 }
 
