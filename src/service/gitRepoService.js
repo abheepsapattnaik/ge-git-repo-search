@@ -21,7 +21,6 @@ export const getRepoDetails = (searchKeyword, props, page = 1) => {
     return axios
         .get(`https://api.github.com/search/repositories?q=${searchKeyword}&page=${page}`)
         .then(response => {
-            console.log('api called')
                 if (page === 1) {
                     return props.loadSuccess(transformData(response.data));
                 } else {
