@@ -21,10 +21,15 @@ const Home = (props) => {
     return <div style={{
         display: 'block',
         justifyContent: 'space-around',
-        padding: 40,
-        height: '89vh'
+        margin: '40px 40px 0 40px',
     }}>
-        <div style={{margin: '100 auto', paddingBottom: 10}}>
+        <div style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 10,
+            backgroundColor: "white"
+        }}>
+
             <RepoAutocomplete
                 getSelectedRepo={(event, repoKeyword) => {
                     props.onSearchChange(repoKeyword?.title || '');
@@ -34,7 +39,7 @@ const Home = (props) => {
         {!!keyWord.trim().length &&
         <RepoDetails loadMore={loadMore}/>
         }
-        {!keyWord.trim().length && <Typography variant={'subtitle1'} > Start Typing ...</Typography>}
+        {!keyWord.trim().length && <Typography variant={'subtitle1'}> Start Typing ...</Typography>}
     </div>
 }
 

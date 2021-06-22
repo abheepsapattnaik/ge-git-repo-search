@@ -32,7 +32,7 @@ export default function RepoLists(props) {
     return (
         <List className={classes.root}>
             {props.repos.map(eachRepo => (
-                <div onClick={() => openInNewTab(eachRepo.url)}
+                <div key={eachRepo.name} onClick={() => openInNewTab(eachRepo.url)}
                      className="list">
                     <ListItem alignItems="flex-start">
                         <ListItemAvatar>
@@ -51,30 +51,30 @@ export default function RepoLists(props) {
                                         {eachRepo.description}
                                     </Typography>
                                     <div>
-                                    <Typography
-                                        component="span"
-                                        variant="body2"
-                                        className={classes.inline}
-                                        color="textSecondary"
-                                    >
-                                        Forks: {eachRepo.forks} &nbsp;
-                                    </Typography>
-                                    <Typography
-                                        component="span"
-                                        variant="body2"
-                                        className={classes.inline}
-                                        color="textSecondary"
-                                    >
-                                        Watchers: {eachRepo.watchers} &nbsp;
-                                    </Typography>
-                                    <Typography
-                                        component="span"
-                                        variant="body2"
-                                        className={classes.inline}
-                                        color="textSecondary"
-                                    >
-                                        LicenseKey: {eachRepo.licenseKey} &nbsp;
-                                    </Typography>
+                                        <Typography
+                                            component="span"
+                                            variant="body2"
+                                            className={classes.inline}
+                                            color="textSecondary"
+                                        >
+                                            Forks: {eachRepo.forks} &nbsp;
+                                        </Typography>
+                                        <Typography
+                                            component="span"
+                                            variant="body2"
+                                            className={classes.inline}
+                                            color="textSecondary"
+                                        >
+                                            Watchers: {eachRepo.watchers} &nbsp;
+                                        </Typography>
+                                        <Typography
+                                            component="span"
+                                            variant="body2"
+                                            className={classes.inline}
+                                            color="textSecondary"
+                                        >
+                                            LicenseKey: {eachRepo.licenseKey} &nbsp;
+                                        </Typography>
                                     </div>
                                     <div>
                                         <Typography

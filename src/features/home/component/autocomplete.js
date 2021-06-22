@@ -10,7 +10,7 @@ export default function RepoAutocomplete(props) {
             options={TOP_REPOSITORIES}
             getOptionLabel={(object) => object.title}
             onChange={props.getSelectedRepo}
-            style={{width: "40vw"}}
+            style={{width: "40vw", paddingTop: 15, paddingBottom: 10}}
             renderInput={(params) =>
                 <TextField {...params} label="Select Repository" variant="outlined"/>}
         />
