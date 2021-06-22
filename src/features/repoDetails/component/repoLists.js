@@ -49,10 +49,44 @@ export default function RepoLists(props) {
                                         color="textPrimary"
                                     >
                                         {eachRepo.description}
-                                        Forks: {eachRepo.forks}:
-                                        Watchers: {eachRepo.watchers}:
-                                        LicenseKey: {eachRepo.licenseKey}
                                     </Typography>
+                                    <div>
+                                    <Typography
+                                        component="span"
+                                        variant="body2"
+                                        className={classes.inline}
+                                        color="textSecondary"
+                                    >
+                                        Forks: {eachRepo.forks} &nbsp;
+                                    </Typography>
+                                    <Typography
+                                        component="span"
+                                        variant="body2"
+                                        className={classes.inline}
+                                        color="textSecondary"
+                                    >
+                                        Watchers: {eachRepo.watchers} &nbsp;
+                                    </Typography>
+                                    <Typography
+                                        component="span"
+                                        variant="body2"
+                                        className={classes.inline}
+                                        color="textSecondary"
+                                    >
+                                        LicenseKey: {eachRepo.licenseKey} &nbsp;
+                                    </Typography>
+                                    </div>
+                                    <div>
+                                        <Typography
+                                            component="span"
+                                            variant="body2"
+                                            className={classes.inline}
+                                            color="textSecondary"
+                                        >
+                                            Updated on: {eachRepo.updatedDate} &nbsp;
+                                            Created on: {eachRepo.createdDate} &nbsp;
+                                        </Typography>
+                                    </div>
                                 </React.Fragment>
                             }
                         />

@@ -4,7 +4,7 @@ const transformData = (repoDetails) => {
     return {
         total: repoDetails['total_count'],
         repos: repoDetails.items.map(each => {
-            const {name, description, owner, license, forks, watchers, html_url} = each;
+            const {name, description, owner, license, forks, watchers, html_url, created_at, updated_at} = each;
             return {
                 name, description,
                 ownerAvatar: owner?.avatar_url,
@@ -12,6 +12,8 @@ const transformData = (repoDetails) => {
                 forks,
                 watchers,
                 url: html_url,
+                createdDate: created_at,
+                updatedDate: updated_at
             }
         })
     }
