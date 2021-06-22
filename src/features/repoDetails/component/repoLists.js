@@ -7,25 +7,33 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import "../../../common/component/App.css"
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         maxWidth: '80vw',
         backgroundColor: theme.palette.background.paper,
+        cursor: 'pointer',
     },
     inline: {
         display: 'inline',
-    },
+    }
 }));
 
 export default function RepoLists(props) {
     const classes = useStyles();
 
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url)
+        if (newWindow) newWindow.opener = null
+    }
+
     return (
         <List className={classes.root}>
             {props.repos.map(eachRepo => (
-                <div>
+                <div onClick={() => openInNewTab(eachRepo.url)}
+                     className="list">
                     <ListItem alignItems="flex-start">
                         <ListItemAvatar>
                             <Avatar alt={eachRepo.name} src={eachRepo.ownerAvatar}/>
@@ -43,7 +51,7 @@ export default function RepoLists(props) {
                                         {eachRepo.description}
                                         Forks: {eachRepo.forks}:
                                         Watchers: {eachRepo.watchers}:
-                                        LicenseKey: {eachRepo.licenseKey}:
+                                        LicenseKey: {eachRepo.licenseKey}
                                     </Typography>
                                 </React.Fragment>
                             }
