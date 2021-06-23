@@ -34,14 +34,31 @@ const repoReducer =
     (state = initialState, action) => {
         switch (action.type) {
             case LOAD_REPOS_SUCCESS_ACTION:
-                return {...state, repos: action.data.repos, total: action.data.total,
-                initialLoading: false};
+                return {
+                    ...state,
+                    repos: action.data.repos,
+                    total: action.data.total,
+                    initialLoading: false, error: false
+                };
             case LOAD_REPOS_MORE_ACTION:
-                return {...state, repos: [...state.repos, ...action.data.repos],};
+                return {
+                    ...state,
+                    repos: [...state.repos, ...action.data.repos],
+                    error: false
+                };
             case LOAD_REPOS_ERROR_ACTION:
-                return {...state, error: true,initialLoading: false};
+                return {
+                    ...state,
+                    error: true,
+                    initialLoading: false
+                };
             case SEARCH_CHANGE_ACTION:
-                return {...state, repos: [], error: false, searchInput: action.data,initialLoading: true};
+                return {
+                    ...state, repos: [],
+                    error: false,
+                    searchInput: action.data,
+                    initialLoading: true
+                };
             default:
                 return state;
         }
